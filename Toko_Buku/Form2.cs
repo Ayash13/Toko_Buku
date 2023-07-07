@@ -22,30 +22,76 @@ namespace Toko_Buku
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_transaction_Click(object sender, EventArgs e)
         {
-            Transaction transaction = new Transaction();
-            transaction.Show();
+            
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_product_Click(object sender, EventArgs e)
+        {
+            ManageProduct manageProduct = new ManageProduct();
+            manageProduct.TopLevel = false;
+            manageProduct.FormBorderStyle = FormBorderStyle.None;
+            manageProduct.Dock = DockStyle.Fill;
+
+            panelContent.Controls.Clear();
+
+            panelContent.Controls.Add(manageProduct);
+
+            manageProduct.Show();
+        }
+
+        private void btn_expedition_Click(object sender, EventArgs e)
+        {
+            Expedition expedition = new Expedition();
+            expedition.TopLevel = false;
+            expedition.FormBorderStyle = FormBorderStyle.None;
+            expedition.Dock = DockStyle.Fill;
+
+            panelContent.Controls.Clear();
+
+            panelContent.Controls.Add(expedition);
+
+            expedition.Show();
+        }
+
+        private void btn_transactionHistory_Click(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            category.TopLevel = false;
+            category.FormBorderStyle = FormBorderStyle.None;
+            category.Dock = DockStyle.Fill;
+
+            panelContent.Controls.Clear();
+
+            panelContent.Controls.Add(category);
+
+            category.Show();
+        }
+
+        private void btn_customers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelContent_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -43,7 +43,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Sitka Subheading", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(276, 90);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(205, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(259, 47);
             this.label1.TabIndex = 0;
@@ -54,7 +55,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Sitka Subheading", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(218, 154);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(147, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(364, 47);
             this.label2.TabIndex = 1;
@@ -65,7 +67,8 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(221, 231);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(150, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 28);
             this.label3.TabIndex = 4;
@@ -77,7 +80,8 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Sitka Subheading", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(221, 276);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(150, 254);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 28);
             this.label4.TabIndex = 5;
@@ -87,7 +91,7 @@
             // txbx_username
             // 
             this.txbx_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbx_username.Location = new System.Drawing.Point(368, 231);
+            this.txbx_username.Location = new System.Drawing.Point(297, 209);
             this.txbx_username.Name = "txbx_username";
             this.txbx_username.Size = new System.Drawing.Size(202, 29);
             this.txbx_username.TabIndex = 6;
@@ -98,7 +102,7 @@
             this.btn_masuk.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_masuk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_masuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_masuk.Location = new System.Drawing.Point(305, 333);
+            this.btn_masuk.Location = new System.Drawing.Point(234, 311);
             this.btn_masuk.Name = "btn_masuk";
             this.btn_masuk.Size = new System.Drawing.Size(265, 44);
             this.btn_masuk.TabIndex = 7;
@@ -109,7 +113,7 @@
             // txbx_password
             // 
             this.txbx_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbx_password.Location = new System.Drawing.Point(368, 276);
+            this.txbx_password.Location = new System.Drawing.Point(297, 254);
             this.txbx_password.Name = "txbx_password";
             this.txbx_password.Size = new System.Drawing.Size(202, 29);
             this.txbx_password.TabIndex = 8;
@@ -120,7 +124,7 @@
             this.btn_exit.BackColor = System.Drawing.Color.LightCoral;
             this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_exit.Location = new System.Drawing.Point(226, 333);
+            this.btn_exit.Location = new System.Drawing.Point(155, 311);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Size = new System.Drawing.Size(73, 44);
             this.btn_exit.TabIndex = 9;
@@ -132,7 +136,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.ClientSize = new System.Drawing.Size(657, 426);
             this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.txbx_password);
             this.Controls.Add(this.btn_masuk);
@@ -142,6 +148,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
