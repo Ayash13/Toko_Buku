@@ -13,10 +13,45 @@ namespace Toko_Buku
 {
     public partial class Category : Form
     {
+        private SqlConnection connection;
+        private SqlCommand command;
+        private SqlDataAdapter adapter;
+
+        private string connectionString = "Data Source=DESKTOP-AJFQKR8\\AYASH;Initial Catalog=Toko_Buku;Persist Security Info=True;User ID=sa;Password=Rahasiatau123";
 
         public Category()
         {
             InitializeComponent();
+            connection = new SqlConnection(connectionString);
+            LoadCategoryData();
+        }
+
+        private void LoadCategoryData()
+        {
+           string query = "SELECT * FROM Category";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridView1.DataSource = dataTable;
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
 
 
