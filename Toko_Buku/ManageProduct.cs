@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Toko_Buku
 {
@@ -16,6 +17,7 @@ namespace Toko_Buku
         private SqlConnection connection;
         private SqlCommand command;
         private SqlDataAdapter adapter;
+        private string imagePath;
 
         private string connectionString = "Data Source=DESKTOP-AJFQKR8\\AYASH;Initial Catalog=Toko_Buku;Persist Security Info=True;User ID=sa;Password=Rahasiatau123";
         public ManageProduct()
@@ -55,7 +57,14 @@ namespace Toko_Buku
 
         private void btn_chooseImage_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg, *.jpeg, *.png, *.gif) | *.jpg; *.jpeg; *.png; *.gif";
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                imagePath = openFileDialog.FileName;
+                txbx_pictSource.Text = imagePath;
+            }
         }
 
         private void btn_add_Click(object sender, EventArgs e)
