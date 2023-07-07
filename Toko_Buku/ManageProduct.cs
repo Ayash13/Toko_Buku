@@ -215,7 +215,13 @@ namespace Toko_Buku
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
-
+            txbx_product.Text = string.Empty;
+            txbx_description.Text = string.Empty;
+            txbx_price.Text = string.Empty;
+            txbx_stock.Text = string.Empty;
+            cbx_category.SelectedIndex = -1;
+            cbx_admin.SelectedIndex = -1;
+            pictureBox1.Image = null;
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
