@@ -26,6 +26,7 @@ namespace Toko_Buku
             connection = new SqlConnection(connectionString);
             LoadProductData();
             LoadAdminData();
+            LoadCategoryData();
         }
 
         private void LoadProductData()
@@ -73,6 +74,34 @@ namespace Toko_Buku
                 cbx_admin.ValueMember = "AdminID";
 
                 cbx_admin.DataSource = adminTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private void LoadCategoryData()
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "SELECT CategoryID, Name FROM Category";
+                command = new SqlCommand(query, connection);
+                DataTable categoryTable = new DataTable();
+
+                adapter = new SqlDataAdapter(command);
+                adapter.Fill(categoryTable);
+
+                cbx_category.DisplayMember = "Name";
+                cbx_category.ValueMember = "CategoryID";
+
+                cbx_category.DataSource = categoryTable;
             }
             catch (Exception ex)
             {
@@ -138,7 +167,10 @@ namespace Toko_Buku
 
         private void cbx_category_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cbx_category.SelectedValue != null)
+            {
+                string categoryID = cbx_category.SelectedValue.ToString();
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
