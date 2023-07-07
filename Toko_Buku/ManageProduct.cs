@@ -22,6 +22,35 @@ namespace Toko_Buku
         {
             InitializeComponent();
             connection = new SqlConnection(connectionString);
+            LoadProductData();
+        }
+
+        private void LoadProductData()
+        {
+            string query = "SELECT * FROM Product";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridView1.DataSource = dataTable;
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void btn_chooseImage_Click(object sender, EventArgs e)
@@ -90,8 +119,22 @@ namespace Toko_Buku
         }
 
 
-
         private void txbx_price_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbx_admin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbx_search_TextChanged(object sender, EventArgs e)
         {
 
         }

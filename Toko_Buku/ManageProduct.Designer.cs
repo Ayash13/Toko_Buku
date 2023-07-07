@@ -32,7 +32,6 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.txbx_search = new System.Windows.Forms.TextBox();
             this.btn_clear = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
             this.cbx_admin = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txbx_price = new System.Windows.Forms.TextBox();
+            this.txbx_search = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -96,16 +96,6 @@
             this.label7.Size = new System.Drawing.Size(201, 55);
             this.label7.TabIndex = 39;
             this.label7.Text = "ID Product";
-            // 
-            // txbx_search
-            // 
-            this.txbx_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbx_search.Location = new System.Drawing.Point(1207, 682);
-            this.txbx_search.Margin = new System.Windows.Forms.Padding(6);
-            this.txbx_search.Name = "txbx_search";
-            this.txbx_search.Size = new System.Drawing.Size(472, 44);
-            this.txbx_search.TabIndex = 38;
-            this.txbx_search.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btn_clear
             // 
@@ -321,6 +311,7 @@
             this.cbx_admin.Name = "cbx_admin";
             this.cbx_admin.Size = new System.Drawing.Size(342, 45);
             this.cbx_admin.TabIndex = 47;
+            this.cbx_admin.SelectedIndexChanged += new System.EventHandler(this.cbx_admin_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -344,12 +335,23 @@
             this.txbx_price.TabIndex = 48;
             this.txbx_price.TextChanged += new System.EventHandler(this.txbx_price_TextChanged);
             // 
+            // txbx_search
+            // 
+            this.txbx_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbx_search.Location = new System.Drawing.Point(1207, 685);
+            this.txbx_search.Margin = new System.Windows.Forms.Padding(6);
+            this.txbx_search.Name = "txbx_search";
+            this.txbx_search.Size = new System.Drawing.Size(476, 44);
+            this.txbx_search.TabIndex = 49;
+            this.txbx_search.TextChanged += new System.EventHandler(this.txbx_search_TextChanged);
+            // 
             // ManageProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1726, 925);
+            this.Controls.Add(this.txbx_search);
             this.Controls.Add(this.txbx_price);
             this.Controls.Add(this.cbx_admin);
             this.Controls.Add(this.label8);
@@ -359,7 +361,6 @@
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txbx_search);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_add);
@@ -390,7 +391,6 @@
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txbx_search;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.Button btn_add;
@@ -412,5 +412,6 @@
         private System.Windows.Forms.ComboBox cbx_admin;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txbx_price;
+        private System.Windows.Forms.TextBox txbx_search;
     }
 }
