@@ -171,13 +171,47 @@ namespace Toko_Buku
         }
 
 
-
-
-
         private void btn_update_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(imagePath))
+            {
+                MessageBox.Show("Please select an image first.");
+                return;
+            }
 
+            string query = "UPDATE Product SET Name = @Name, Description = @Description, Price = @Price, Stock = @Stock, CategoryID = @CategoryID, AdminID = @AdminID, Image = @Image WHERE ProductID = @ProductID";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ProductID", txbx_search.Text);
+                    cmd.Parameters.AddWithValue("@Name", txbx_product.Text);
+                    cmd.Parameters.AddWithValue("@Description", txbx_description.Text);
+                    cmd.Parameters.AddWithValue("@Price", txbx_price.Text);
+                    cmd.Parameters.AddWithValue("@Stock", txbx_stock.Text);
+                    cmd.Parameters.AddWithValue("@CategoryID", cbx_category.SelectedValue);
+                    cmd.Parameters.AddWithValue("@AdminID", cbx_admin.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Image", File.ReadAllBytes(imagePath));
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data successfully updated.");
+                        LoadProductData();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
+
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
