@@ -84,7 +84,32 @@ namespace Toko_Buku
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            
+            string query = "UPDATE Category SET Name = @Name, AdminID = @AdminID WHERE CategoryID = @CategoryID";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Name", txbx_category.Text);
+                    cmd.Parameters.AddWithValue("@AdminID", cbx_admin.SelectedValue);
+                    cmd.Parameters.AddWithValue("@CategoryID", txbx_id.Text);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data successfully updated.");
+                        LoadCategoryData();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
