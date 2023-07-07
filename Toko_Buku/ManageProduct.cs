@@ -25,6 +25,7 @@ namespace Toko_Buku
             InitializeComponent();
             connection = new SqlConnection(connectionString);
             LoadProductData();
+            LoadAdminData();
         }
 
         private void LoadProductData()
@@ -52,6 +53,34 @@ namespace Toko_Buku
                         MessageBox.Show("An error occurred: " + ex.Message);
                     }
                 }
+            }
+        }
+
+        private void LoadAdminData()
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "SELECT AdminID, Username FROM Admin";
+                command = new SqlCommand(query, connection);
+                DataTable adminTable = new DataTable();
+
+                adapter = new SqlDataAdapter(command);
+                adapter.Fill(adminTable);
+
+                cbx_admin.DisplayMember = "Username";
+                cbx_admin.ValueMember = "AdminID";
+
+                cbx_admin.DataSource = adminTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -135,7 +164,10 @@ namespace Toko_Buku
 
         private void cbx_admin_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cbx_admin.SelectedValue != null)
+            {
+                string adminID = cbx_admin.SelectedValue.ToString();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
