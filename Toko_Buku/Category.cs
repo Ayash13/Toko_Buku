@@ -238,5 +238,10 @@ namespace Toko_Buku
                 string adminID = cbx_admin.SelectedValue.ToString();
             }
         }
+
+        private void Category_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

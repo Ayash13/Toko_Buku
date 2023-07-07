@@ -251,6 +251,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Category";
             this.Text = "Category";
+            this.Load += new System.EventHandler(this.Category_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
