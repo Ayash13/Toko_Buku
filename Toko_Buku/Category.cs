@@ -89,7 +89,9 @@ namespace Toko_Buku
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
-           
+            txbx_id.Text = string.Empty;
+            txbx_category.Text = string.Empty;
+            cbx_admin.SelectedIndex = -1;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
