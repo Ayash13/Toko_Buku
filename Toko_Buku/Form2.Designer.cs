@@ -50,7 +50,7 @@
             this.btn_transaction.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_transaction.ForeColor = System.Drawing.Color.White;
             this.btn_transaction.Location = new System.Drawing.Point(24, 629);
-            this.btn_transaction.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_transaction.Margin = new System.Windows.Forms.Padding(6);
             this.btn_transaction.Name = "btn_transaction";
             this.btn_transaction.Size = new System.Drawing.Size(258, 202);
             this.btn_transaction.TabIndex = 4;
@@ -66,7 +66,7 @@
             this.btn_product.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_product.ForeColor = System.Drawing.Color.White;
             this.btn_product.Location = new System.Drawing.Point(24, 180);
-            this.btn_product.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_product.Margin = new System.Windows.Forms.Padding(6);
             this.btn_product.Name = "btn_product";
             this.btn_product.Size = new System.Drawing.Size(258, 125);
             this.btn_product.TabIndex = 5;
@@ -82,7 +82,7 @@
             this.btn_expedition.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_expedition.ForeColor = System.Drawing.Color.White;
             this.btn_expedition.Location = new System.Drawing.Point(24, 327);
-            this.btn_expedition.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_expedition.Margin = new System.Windows.Forms.Padding(6);
             this.btn_expedition.Name = "btn_expedition";
             this.btn_expedition.Size = new System.Drawing.Size(258, 131);
             this.btn_expedition.TabIndex = 6;
@@ -98,7 +98,7 @@
             this.btn_customers.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_customers.ForeColor = System.Drawing.Color.White;
             this.btn_customers.Location = new System.Drawing.Point(24, 481);
-            this.btn_customers.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_customers.Margin = new System.Windows.Forms.Padding(6);
             this.btn_customers.Name = "btn_customers";
             this.btn_customers.Size = new System.Drawing.Size(258, 123);
             this.btn_customers.TabIndex = 8;
@@ -109,7 +109,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Location = new System.Drawing.Point(2, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(6);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -137,7 +137,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(84, 25);
+            this.label1.Location = new System.Drawing.Point(84, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 54);
@@ -152,7 +152,7 @@
             this.btn_category.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_category.ForeColor = System.Drawing.Color.White;
             this.btn_category.Location = new System.Drawing.Point(24, 32);
-            this.btn_category.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_category.Margin = new System.Windows.Forms.Padding(6);
             this.btn_category.Name = "btn_category";
             this.btn_category.Size = new System.Drawing.Size(258, 127);
             this.btn_category.TabIndex = 7;
@@ -164,7 +164,7 @@
             // 
             this.panelContent.BackColor = System.Drawing.Color.White;
             this.panelContent.Location = new System.Drawing.Point(320, 15);
-            this.panelContent.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelContent.Margin = new System.Windows.Forms.Padding(6);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(1734, 927);
             this.panelContent.TabIndex = 10;
@@ -179,7 +179,7 @@
             this.ClientSize = new System.Drawing.Size(2068, 948);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "form_menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "form_menu";
