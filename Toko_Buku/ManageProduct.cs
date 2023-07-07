@@ -219,6 +219,7 @@ namespace Toko_Buku
             txbx_description.Text = string.Empty;
             txbx_price.Text = string.Empty;
             txbx_stock.Text = string.Empty;
+            txbx_pictSource.Text = string.Empty;
             cbx_category.SelectedIndex = -1;
             cbx_admin.SelectedIndex = -1;
             pictureBox1.Image = null;
@@ -254,7 +255,32 @@ namespace Toko_Buku
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            string query = "SELECT * FROM Product WHERE ProductID = @idProduct";
 
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@idProduct", txbx_search.Text);
+
+                    try
+                    {
+                        conn.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridView1.DataSource = dataTable;
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void txbx_product_TextChanged(object sender, EventArgs e)
