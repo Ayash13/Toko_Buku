@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,20 +116,63 @@ namespace Toko_Buku
 
         private void btn_chooseImage_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+           OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image Files (*.jpg, *.jpeg, *.png, *.gif) | *.jpg; *.jpeg; *.png; *.gif";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 imagePath = openFileDialog.FileName;
+                pictureBox1.Image = Image.FromFile(imagePath);
                 txbx_pictSource.Text = imagePath;
             }
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(imagePath))
+            {
+                MessageBox.Show("Please select an image first.");
+                return;
+            }
 
+            string productID = Guid.NewGuid().ToString().Substring(0, 5);
+
+            string query = "INSERT INTO Product (ProductID, Name, Description, Price, Stock, CategoryID, AdminID, Image) VALUES (@ProductID, @Name, @Description, @Price, @Stock, @CategoryID, @AdminID, @Image)";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ProductID", productID);
+                    cmd.Parameters.AddWithValue("@Name", txbx_product.Text);
+                    cmd.Parameters.AddWithValue("@Description", txbx_description.Text);
+                    cmd.Parameters.AddWithValue("@Price", txbx_price.Text);
+                    cmd.Parameters.AddWithValue("@Stock", txbx_stock.Text);
+                    cmd.Parameters.AddWithValue("@CategoryID", cbx_category.SelectedValue);
+                    cmd.Parameters.AddWithValue("@AdminID", cbx_admin.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Image", File.ReadAllBytes(imagePath));
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data successfully added.");
+                        LoadProductData();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
+
+
+
+
 
         private void btn_update_Click(object sender, EventArgs e)
         {
@@ -175,7 +219,7 @@ namespace Toko_Buku
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void txbx_pictSource_TextChanged(object sender, EventArgs e)
