@@ -79,7 +79,32 @@ namespace Toko_Buku
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            
+            string query = "INSERT INTO Category (CategoryID, Name, AdminID) VALUES (@CategoryID, @Name, @AdminID)";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CategoryID", txbx_id.Text);
+                    cmd.Parameters.AddWithValue("@Name", txbx_category.Text);
+                    cmd.Parameters.AddWithValue("@AdminID", cbx_admin.SelectedValue);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data successfully added.");
+                        LoadCategoryData();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void btn_update_Click(object sender, EventArgs e)
