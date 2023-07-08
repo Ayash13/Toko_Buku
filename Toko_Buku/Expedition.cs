@@ -23,6 +23,7 @@ namespace Toko_Buku
             InitializeComponent();
             connection = new SqlConnection(connectionString);
             LoadAdminData();
+            LoadExpeditionData();
         }
 
         private void LoadAdminData()
@@ -50,6 +51,34 @@ namespace Toko_Buku
             finally
             {
                 connection.Close();
+            }
+        }
+
+        private void LoadExpeditionData()
+        {
+            string query = "SELECT * FROM Expedition";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridView1.DataSource = dataTable;
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
             }
         }
 
