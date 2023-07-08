@@ -38,13 +38,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txbx_price = new System.Windows.Forms.TextBox();
             this.txbx_expedition = new System.Windows.Forms.TextBox();
-            this.txbx_id = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txbx_eta = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.cbx_admin = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,15 +163,6 @@
             this.txbx_expedition.Size = new System.Drawing.Size(472, 44);
             this.txbx_expedition.TabIndex = 49;
             // 
-            // txbx_id
-            // 
-            this.txbx_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbx_id.Location = new System.Drawing.Point(388, 190);
-            this.txbx_id.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txbx_id.Name = "txbx_id";
-            this.txbx_id.Size = new System.Drawing.Size(472, 44);
-            this.txbx_id.TabIndex = 48;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -204,9 +195,9 @@
             this.label3.Location = new System.Drawing.Point(100, 185);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 55);
+            this.label3.Size = new System.Drawing.Size(133, 55);
             this.label3.TabIndex = 43;
-            this.label3.Text = "ID";
+            this.label3.Text = "Admin";
             // 
             // label1
             // 
@@ -241,6 +232,16 @@
             this.label5.TabIndex = 61;
             this.label5.Text = "ETA";
             // 
+            // cbx_admin
+            // 
+            this.cbx_admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_admin.FormattingEnabled = true;
+            this.cbx_admin.Location = new System.Drawing.Point(388, 197);
+            this.cbx_admin.Margin = new System.Windows.Forms.Padding(6);
+            this.cbx_admin.Name = "cbx_admin";
+            this.cbx_admin.Size = new System.Drawing.Size(472, 45);
+            this.cbx_admin.TabIndex = 63;
+            // 
             // Expedition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -248,6 +249,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1744, 935);
+            this.Controls.Add(this.cbx_admin);
             this.Controls.Add(this.txbx_eta);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_search);
@@ -260,7 +262,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txbx_price);
             this.Controls.Add(this.txbx_expedition);
-            this.Controls.Add(this.txbx_id);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -287,12 +288,12 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txbx_price;
         private System.Windows.Forms.TextBox txbx_expedition;
-        private System.Windows.Forms.TextBox txbx_id;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbx_eta;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbx_admin;
     }
 }
