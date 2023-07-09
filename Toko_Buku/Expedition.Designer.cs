@@ -59,6 +59,7 @@
             this.btn_search.TabIndex = 60;
             this.btn_search.Text = "Search";
             this.btn_search.UseVisualStyleBackColor = false;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // btn_delete
             // 
