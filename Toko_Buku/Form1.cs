@@ -30,7 +30,16 @@ namespace Toko_Buku
 
         private void btn_daftar_Click(object sender, EventArgs e)
         {
+            Register register = new Register();
+            register.TopLevel = false;
+            register.FormBorderStyle = FormBorderStyle.None;
+            register.Dock = DockStyle.Fill;
 
+            panel1.Controls.Clear();
+
+            panel1.Controls.Add(register);
+
+            register.Show();
         }
 
         private void btn_login_Click(object sender, EventArgs e)

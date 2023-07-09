@@ -11,28 +11,18 @@ using System.Windows.Forms;
 
 namespace Toko_Buku
 {
-    public partial class Login : Form
+    public partial class Register : Form
     {
         private SqlConnection connection;
 
         private string connectionString = "Data Source=DESKTOP-AJFQKR8\\AYASH;Initial Catalog=Toko_Buku;Persist Security Info=True;User ID=sa;Password=Rahasiatau123";
-        public Login()
+        public Register()
         {
             InitializeComponent();
             connection = new SqlConnection(connectionString);
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void Register_Load(object sender, EventArgs e)
         {
 
         }
@@ -42,18 +32,7 @@ namespace Toko_Buku
 
         }
 
-
         private void btn_clear_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbx_username_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbx_password_TextChanged(object sender, EventArgs e)
         {
 
         }
