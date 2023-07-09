@@ -81,7 +81,16 @@ namespace Toko_Buku
 
         private void btn_customers_Click(object sender, EventArgs e)
         {
+            CustomersData customers = new CustomersData();
+            customers.TopLevel = false;
+            customers.FormBorderStyle = FormBorderStyle.None;
+            customers.Dock = DockStyle.Fill;
 
+            panelContent.Controls.Clear();
+
+            panelContent.Controls.Add(customers);
+
+            customers.Show();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

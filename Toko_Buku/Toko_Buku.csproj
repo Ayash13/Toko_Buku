@@ -52,6 +52,12 @@
     <Compile Include="Category.Designer.cs">
       <DependentUpon>Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomersData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomersData.Designer.cs">
+      <DependentUpon>CustomersData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Expedition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomersData.resx">
+      <DependentUpon>CustomersData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Expedition.resx">
       <DependentUpon>Expedition.cs</DependentUpon>
