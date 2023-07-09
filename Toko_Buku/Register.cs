@@ -63,7 +63,11 @@ namespace Toko_Buku
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
-
+            txbx_password.Text = string.Empty;
+            txbx_username.Text = string.Empty;
+            txbx_email.Text = string.Empty;
+            txbx_alamat.Text = string.Empty;
+            txbx_noTelp.Text = string.Empty;
         }
     }
 }
