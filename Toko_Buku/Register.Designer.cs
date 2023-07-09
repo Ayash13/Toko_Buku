@@ -35,7 +35,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbx_noTelp = new System.Windows.Forms.TextBox();
             this.txbx_password = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -121,13 +121,13 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "DAFTAR";
             // 
-            // textBox1
+            // txbx_noTelp
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(246, 230);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(202, 29);
-            this.textBox1.TabIndex = 30;
+            this.txbx_noTelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbx_noTelp.Location = new System.Drawing.Point(246, 230);
+            this.txbx_noTelp.Name = "txbx_noTelp";
+            this.txbx_noTelp.Size = new System.Drawing.Size(202, 29);
+            this.txbx_noTelp.TabIndex = 30;
             // 
             // txbx_password
             // 
@@ -189,7 +189,7 @@
             this.ClientSize = new System.Drawing.Size(542, 444);
             this.Controls.Add(this.txbx_alamat);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbx_noTelp);
             this.Controls.Add(this.txbx_password);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -218,7 +218,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbx_noTelp;
         private System.Windows.Forms.TextBox txbx_password;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
