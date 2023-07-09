@@ -149,5 +149,15 @@ namespace Toko_Buku
                 }
             }
         }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            txbx_eta.Text = string.Empty;
+            txbx_expedition.Text = string.Empty;
+            txbx_price.Text = string.Empty;
+            txbx_search.Text = string.Empty;
+            cbx_admin.SelectedIndex = -1;
+            cbx_admin.SelectedIndex = -1;
+        }
     }
 }

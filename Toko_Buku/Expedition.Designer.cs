@@ -53,7 +53,7 @@
             this.btn_search.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_search.Location = new System.Drawing.Point(1416, 765);
-            this.btn_search.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(6);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(212, 102);
             this.btn_search.TabIndex = 60;
@@ -65,7 +65,7 @@
             this.btn_delete.BackColor = System.Drawing.Color.LightCoral;
             this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_delete.Location = new System.Drawing.Point(1182, 765);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(6);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(210, 102);
             this.btn_delete.TabIndex = 59;
@@ -88,7 +88,7 @@
             // 
             this.txbx_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbx_search.Location = new System.Drawing.Point(1182, 679);
-            this.txbx_search.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbx_search.Margin = new System.Windows.Forms.Padding(6);
             this.txbx_search.Name = "txbx_search";
             this.txbx_search.Size = new System.Drawing.Size(442, 44);
             this.txbx_search.TabIndex = 57;
@@ -99,12 +99,13 @@
             this.btn_clear.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_clear.Location = new System.Drawing.Point(676, 546);
-            this.btn_clear.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_clear.Margin = new System.Windows.Forms.Padding(6);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(188, 102);
             this.btn_clear.TabIndex = 56;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btn_update
             // 
@@ -112,7 +113,7 @@
             this.btn_update.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_update.Location = new System.Drawing.Point(388, 546);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(6);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(252, 102);
             this.btn_update.TabIndex = 55;
@@ -126,7 +127,7 @@
             this.btn_add.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_add.Location = new System.Drawing.Point(108, 546);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(6);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(240, 102);
             this.btn_add.TabIndex = 54;
@@ -140,7 +141,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(932, 190);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.Size = new System.Drawing.Size(698, 458);
@@ -150,7 +151,7 @@
             // 
             this.txbx_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbx_price.Location = new System.Drawing.Point(388, 438);
-            this.txbx_price.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbx_price.Margin = new System.Windows.Forms.Padding(6);
             this.txbx_price.Name = "txbx_price";
             this.txbx_price.Size = new System.Drawing.Size(472, 44);
             this.txbx_price.TabIndex = 50;
@@ -159,7 +160,7 @@
             // 
             this.txbx_expedition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbx_expedition.Location = new System.Drawing.Point(388, 273);
-            this.txbx_expedition.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbx_expedition.Margin = new System.Windows.Forms.Padding(6);
             this.txbx_expedition.Name = "txbx_expedition";
             this.txbx_expedition.Size = new System.Drawing.Size(472, 44);
             this.txbx_expedition.TabIndex = 49;
@@ -216,7 +217,7 @@
             // 
             this.txbx_eta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbx_eta.Location = new System.Drawing.Point(388, 354);
-            this.txbx_eta.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbx_eta.Margin = new System.Windows.Forms.Padding(6);
             this.txbx_eta.Name = "txbx_eta";
             this.txbx_eta.Size = new System.Drawing.Size(472, 44);
             this.txbx_eta.TabIndex = 62;
@@ -267,7 +268,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Expedition";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expedition";
