@@ -348,6 +348,7 @@ namespace Toko_Buku
         private void ManageProduct_Load(object sender, EventArgs e)
         {
 
+
         }
     }
 }

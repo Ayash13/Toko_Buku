@@ -14,7 +14,6 @@ namespace Toko_Buku
     public partial class CustomersData : Form
     {
         private SqlConnection connection;
-        private SqlCommand command;
 
         private string connectionString = "Data Source=DESKTOP-AJFQKR8\\AYASH;Initial Catalog=Toko_Buku;Persist Security Info=True;User ID=sa;Password=Rahasiatau123";
         public CustomersData()
