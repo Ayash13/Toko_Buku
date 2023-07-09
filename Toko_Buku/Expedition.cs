@@ -120,7 +120,34 @@ namespace Toko_Buku
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-           
+            string query = "UPDATE Expedition SET Name = @Name, ExpeditionID = @ExpeditionID, Price = @Price, ETA = @ETA, AdminID = @AdminID WHERE ExpeditionID = @ExpeditionID";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ExpeditionID", txbx_search.Text);
+                    cmd.Parameters.AddWithValue("@Name", txbx_expedition.Text);
+                    cmd.Parameters.AddWithValue("@Price", txbx_price.Text);
+                    cmd.Parameters.AddWithValue("@ETA", txbx_eta.Text);
+                    cmd.Parameters.AddWithValue("@AdminID", cbx_admin.SelectedValue);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data successfully updated.");
+                        LoadExpeditionData();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
