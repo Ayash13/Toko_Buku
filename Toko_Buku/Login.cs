@@ -66,30 +66,29 @@ namespace Toko_Buku
 
                 // Customers
                 string userQuery = "SELECT COUNT(*) FROM Customer WHERE Name = @Name AND Password = @Password";
-                using (SqlCommand userCmd = new SqlCommand(userQuery, conn))
+                using (SqlCommand customerCmd = new SqlCommand(userQuery, conn))
                 {
-                    userCmd.Parameters.AddWithValue("@Name", username);
-                    userCmd.Parameters.AddWithValue("@Password", password);
+                    customerCmd.Parameters.AddWithValue("@Name", username);
+                    customerCmd.Parameters.AddWithValue("@Password", password);
 
-                    try
+                    int customerResult = (int)customerCmd.ExecuteScalar();
+
+                    if (customerResult > 0)
                     {
-                        int userResult = (int)userCmd.ExecuteScalar();
-
-                        if (userResult > 0)
+                        // Get the customer ID
+                        string customerIdQuery = "SELECT CustomerID FROM Customer WHERE Name = @Name";
+                        using (SqlCommand customerIdCmd = new SqlCommand(customerIdQuery, conn))
                         {
-                            CustomersForm customers = new CustomersForm();
-                            customers.Show();
+                            customerIdCmd.Parameters.AddWithValue("@Name", username);
+                            string customerId = customerIdCmd.ExecuteScalar().ToString();
+
+                            // Pass the customer ID to the user form
+                            //form_menu_user menuUser = new form_menu_user(customerId);
+                            CustomersForm customersForm = new CustomersForm(customerId);
+                            customersForm.Show();
                             this.Hide();
                             return;
                         }
-                    }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
                     }
                 }
 

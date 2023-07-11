@@ -46,6 +46,7 @@
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(867, 482);
             this.panelContent.TabIndex = 12;
+            this.panelContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
             // 
             // splitContainer1
             // 
@@ -108,6 +109,7 @@
             this.btn_transac.TabIndex = 6;
             this.btn_transac.Text = "Transaksi";
             this.btn_transac.UseVisualStyleBackColor = true;
+            this.btn_transac.Click += new System.EventHandler(this.btn_transac_Click);
             // 
             // CustomersForm
             // 
@@ -118,6 +120,7 @@
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.splitContainer1);
             this.Name = "CustomersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customers Form";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

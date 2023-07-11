@@ -217,5 +217,10 @@ namespace Toko_Buku
                 }
             }
         }
+
+        private void Expedition_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
