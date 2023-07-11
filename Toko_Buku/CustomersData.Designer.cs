@@ -60,7 +60,7 @@
             // 
             this.txbx_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbx_name.Location = new System.Drawing.Point(1244, 662);
-            this.txbx_name.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbx_name.Margin = new System.Windows.Forms.Padding(6);
             this.txbx_name.Name = "txbx_name";
             this.txbx_name.Size = new System.Drawing.Size(344, 44);
             this.txbx_name.TabIndex = 71;
@@ -70,7 +70,7 @@
             this.btn_search.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_search.Location = new System.Drawing.Point(918, 754);
-            this.btn_search.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_search.Margin = new System.Windows.Forms.Padding(6);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(674, 102);
             this.btn_search.TabIndex = 70;
@@ -97,7 +97,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(114, 152);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 150;
             this.dataGridView1.Size = new System.Drawing.Size(1504, 454);
@@ -119,7 +119,7 @@
             // 
             this.txbx_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbx_search.Location = new System.Drawing.Point(262, 25);
-            this.txbx_search.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txbx_search.Margin = new System.Windows.Forms.Padding(6);
             this.txbx_search.Name = "txbx_search";
             this.txbx_search.Size = new System.Drawing.Size(446, 44);
             this.txbx_search.TabIndex = 67;
@@ -129,7 +129,7 @@
             this.btn_delete.BackColor = System.Drawing.Color.LightCoral;
             this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_delete.Location = new System.Drawing.Point(26, 115);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(6);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(686, 102);
             this.btn_delete.TabIndex = 69;
@@ -144,7 +144,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txbx_search);
             this.panel1.Location = new System.Drawing.Point(114, 638);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(740, 242);
             this.panel1.TabIndex = 73;
@@ -154,7 +154,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(888, 638);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(730, 242);
             this.panel2.TabIndex = 74;
@@ -163,6 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1758, 1002);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txbx_name);
@@ -170,7 +171,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CustomersData";
             this.Text = "CustomersData";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

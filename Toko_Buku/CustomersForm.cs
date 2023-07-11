@@ -48,5 +48,19 @@ namespace Toko_Buku
 
             transactionForm.Show();
         }
+
+        private void btn_history_Click(object sender, EventArgs e)
+        {
+            TransactionHistory transactionHistory = new TransactionHistory(CustomerID);
+            transactionHistory.TopLevel = false;
+            transactionHistory.FormBorderStyle = FormBorderStyle.None;
+            transactionHistory.Dock = DockStyle.Fill;
+
+            panelContent.Controls.Clear();
+
+            panelContent.Controls.Add(transactionHistory);
+
+            transactionHistory.Show();
+        }
     }
 }

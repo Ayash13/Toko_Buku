@@ -14,8 +14,13 @@ namespace Toko_Buku
 {
     public partial class Payment : Form
     {
+        private SqlConnection connection;
+        private SqlCommand command;
+        private SqlDataAdapter adapter;
+
         private string connectionString = "Data Source=DESKTOP-AJFQKR8\\AYASH;Initial Catalog=Toko_Buku;Persist Security Info=True;User ID=sa;Password=Rahasiatau123";
         public string ProductName { get; set; }
+        public string ProductID { get; set; }
         public int ProductPrice { get; set; }
         public int ProductStock { get; set; }
         public byte[] ProductImage { get; set; }
@@ -30,6 +35,7 @@ namespace Toko_Buku
         public Payment(string customerId)
         {
             InitializeComponent();
+            connection = new SqlConnection(connectionString);
             CustomerID = customerId;
             LoadCustomerData(customerId);
         }
@@ -175,7 +181,68 @@ namespace Toko_Buku
 
         private void btn_confirmPayment_Click(object sender, EventArgs e)
         {
+            string orderDetailID = Guid.NewGuid().ToString().Substring(0, 5);
+            string query = "INSERT INTO OrderDetail (OrderDetailID, OrderID, ProductID, Quantity, Subtotal) VALUES (@OrderDetailID, @OrderID, @ProductID, @Quantity, @Subtotal)";
+            string paymentID = Guid.NewGuid().ToString().Substring(0, 5);
+            string sqlQuery = "INSERT INTO Payment (PaymentID, OrderID, TotalAmount, PaymentMethod) VALUES (@PaymentID, @OrderID, @TotalAmount, @PaymentMethod)";
 
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@OrderDetailID", orderDetailID);
+                    cmd.Parameters.AddWithValue("@OrderID", OrderID);
+                    cmd.Parameters.AddWithValue("@ProductID", ProductID);
+                    cmd.Parameters.AddWithValue("@Quantity", label_qty.Text);
+                    cmd.Parameters.AddWithValue("@Subtotal", label_totalPrice.Text);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+
+                using (SqlCommand cmd2 = new SqlCommand(sqlQuery, conn))
+                {
+                    cmd2.Parameters.AddWithValue("@PaymentID", paymentID);
+                    cmd2.Parameters.AddWithValue("@OrderID", OrderID);
+                    cmd2.Parameters.AddWithValue("@TotalAmount", label_totalPrice.Text);
+                    cmd2.Parameters.AddWithValue("@PaymentMethod", cbx_paymentMethod.Text);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd2.ExecuteNonQuery();
+                        MessageBox.Show("Data successfully added.");
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message + " (Error Code: " + ex.Number + ")");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
         }
+
     }
 }

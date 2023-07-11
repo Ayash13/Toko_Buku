@@ -255,6 +255,7 @@ namespace Toko_Buku
                     txbx_eta.Text != "" && txbx_expeditionPrice.Text != "" && txbx_total.Text != "")
                 {
                     string productName = selectedRow.Cells["Name"].Value.ToString();
+                    string productID = selectedRow.Cells["ProductID"].Value.ToString();
                     int productPrice = Convert.ToInt32(selectedRow.Cells["Price"].Value);
                     int productStock = Convert.ToInt32(selectedRow.Cells["Stock"].Value);
                     byte[] productImage = (byte[])selectedRow.Cells["Image"].Value;
@@ -264,13 +265,10 @@ namespace Toko_Buku
                     int selectedQuantity = Convert.ToInt32(numericUpDown1.Value);
                     int totalPrice = Convert.ToInt32(txbx_total.Text);
 
-                    // Generate order ID
                     string orderID = Guid.NewGuid().ToString().Substring(0, 5);
-
-                    // Get current date and time as order date
+                    
                     DateTime orderDate = DateTime.Now;
 
-                    // Insert the order into the database
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         try
@@ -303,10 +301,11 @@ namespace Toko_Buku
                         ExpeditionPrice = expeditionPrice,
                         SelectedQuantity = selectedQuantity,
                         TotalPrice = totalPrice,
-                        OrderID = orderID  // Pass the order ID to the Payment form
+                        OrderID = orderID,
+                        ProductID = productID
                     };
 
-                    ResetTransactionForm(); // Clear the transaction form
+                    ResetTransactionForm(); 
                     isPaymentFormShown = true;
                     payment.FormClosed += Payment_FormClosed;
                     payment.Show();
