@@ -108,5 +108,20 @@ namespace Toko_Buku
                 }
             }
         }
+
+        private void txbx_search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbx_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomersData_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

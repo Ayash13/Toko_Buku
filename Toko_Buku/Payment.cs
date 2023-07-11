@@ -227,6 +227,7 @@ namespace Toko_Buku
                         conn.Open();
                         int rowsAffected = cmd2.ExecuteNonQuery();
                         MessageBox.Show("Data successfully added.");
+                        this.Close();
                     }
                     catch (SqlException ex)
                     {

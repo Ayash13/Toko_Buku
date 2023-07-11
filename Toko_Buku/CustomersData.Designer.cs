@@ -32,15 +32,15 @@
             this.txbx_name = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txbx_search = new System.Windows.Forms.TextBox();
             this.btn_delete = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -64,6 +64,7 @@
             this.txbx_name.Name = "txbx_name";
             this.txbx_name.Size = new System.Drawing.Size(344, 44);
             this.txbx_name.TabIndex = 71;
+            this.txbx_name.TextChanged += new System.EventHandler(this.txbx_name_TextChanged);
             // 
             // btn_search
             // 
@@ -91,18 +92,6 @@
             this.label7.TabIndex = 68;
             this.label7.Text = "ID Customer";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(114, 152);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 150;
-            this.dataGridView1.Size = new System.Drawing.Size(1504, 454);
-            this.dataGridView1.TabIndex = 64;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -123,6 +112,7 @@
             this.txbx_search.Name = "txbx_search";
             this.txbx_search.Size = new System.Drawing.Size(446, 44);
             this.txbx_search.TabIndex = 67;
+            this.txbx_search.TextChanged += new System.EventHandler(this.txbx_search_TextChanged);
             // 
             // btn_delete
             // 
@@ -159,6 +149,18 @@
             this.panel2.Size = new System.Drawing.Size(730, 242);
             this.panel2.TabIndex = 74;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.Color.White;
+            this.dataGridView1.Location = new System.Drawing.Point(114, 152);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 150;
+            this.dataGridView1.Size = new System.Drawing.Size(1504, 454);
+            this.dataGridView1.TabIndex = 64;
+            // 
             // CustomersData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -174,11 +176,12 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CustomersData";
             this.Text = "CustomersData";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.CustomersData_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,11 +193,11 @@
         private System.Windows.Forms.TextBox txbx_name;
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbx_search;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
