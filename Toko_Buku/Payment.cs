@@ -25,6 +25,7 @@ namespace Toko_Buku
         public int SelectedQuantity { get; set; }
         public int TotalPrice { get; set; }
         public string CustomerID { get; set; }
+        public string OrderID { get; set; }
 
         public Payment(string customerId)
         {

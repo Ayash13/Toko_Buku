@@ -13,6 +13,7 @@ namespace Toko_Buku
         private SqlConnection connection;
         private SqlCommand command;
         private SqlDataAdapter adapter;
+        private string selectedExpeditionID;
 
         private string connectionString = "Data Source=DESKTOP-AJFQKR8\\AYASH;Initial Catalog=Toko_Buku;Persist Security Info=True;User ID=sa;Password=Rahasiatau123";
 
@@ -64,7 +65,7 @@ namespace Toko_Buku
                 {
                     conn.Open();
 
-                    string query = "SELECT Name FROM Expedition";
+                    string query = "SELECT ExpeditionID, Name FROM Expedition"; // Include the ID column in the query
                     SqlCommand command = new SqlCommand(query, conn);
                     DataTable categoryTable = new DataTable();
 
@@ -75,11 +76,12 @@ namespace Toko_Buku
 
                     // Add an empty row to the table
                     DataRow emptyRow = categoryTable.NewRow();
+                    emptyRow["ExpeditionID"] = string.Empty;
                     emptyRow["Name"] = string.Empty;
                     categoryTable.Rows.InsertAt(emptyRow, 0);
 
                     cbx_expedition.DisplayMember = "Name";
-                    cbx_expedition.ValueMember = "Name";
+                    cbx_expedition.ValueMember = "ExpeditionID"; // Set the ValueMember to the ID column
                     cbx_expedition.DataSource = categoryTable;
                 }
             }
@@ -88,6 +90,7 @@ namespace Toko_Buku
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
 
         private void ConfigureDataGridViewAppearance()
@@ -180,6 +183,7 @@ namespace Toko_Buku
                 if (selectedRowIndex >= 0 && selectedRowIndex < dataGridView1.Rows.Count)
                 {
                     string selectedExpedition = cbx_expedition.SelectedValue.ToString();
+                    selectedExpeditionID = cbx_expedition.SelectedValue.ToString(); // Store the selected expedition ID
 
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
@@ -187,9 +191,9 @@ namespace Toko_Buku
                         {
                             conn.Open();
 
-                            string query = "SELECT ETA, Price FROM Expedition WHERE Name = @Name";
+                            string query = "SELECT ETA, Price FROM Expedition WHERE ExpeditionID = @ExpeditionID"; // Retrieve ETA and Price based on ID
                             SqlCommand command = new SqlCommand(query, conn);
-                            command.Parameters.AddWithValue("@Name", selectedExpedition);
+                            command.Parameters.AddWithValue("@ExpeditionID", selectedExpeditionID);
 
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
@@ -235,9 +239,6 @@ namespace Toko_Buku
             }
         }
 
-
-
-
         private bool isPaymentFormShown = false;
 
         private void btn_beli_Click(object sender, EventArgs e)
@@ -263,6 +264,34 @@ namespace Toko_Buku
                     int selectedQuantity = Convert.ToInt32(numericUpDown1.Value);
                     int totalPrice = Convert.ToInt32(txbx_total.Text);
 
+                    // Generate order ID
+                    string orderID = Guid.NewGuid().ToString().Substring(0, 5);
+
+                    // Get current date and time as order date
+                    DateTime orderDate = DateTime.Now;
+
+                    // Insert the order into the database
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conn.Open();
+
+                            string query = @"INSERT INTO [Order] (OrderID, OrderDate, CustomerID, ExpeditionID)
+                                     VALUES (@OrderID, @OrderDate, @CustomerID, @ExpeditionID)";
+                            SqlCommand command = new SqlCommand(query, conn);
+                            command.Parameters.AddWithValue("@OrderID", orderID);
+                            command.Parameters.AddWithValue("@OrderDate", orderDate);
+                            command.Parameters.AddWithValue("@CustomerID", CustomerID);
+                            command.Parameters.AddWithValue("@ExpeditionID", selectedExpeditionID); // Use the selected expedition ID
+                            command.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                    }
+
                     Payment payment = new Payment(CustomerID)
                     {
                         ProductName = productName,
@@ -273,7 +302,8 @@ namespace Toko_Buku
                         ExpeditionETA = expeditionETA,
                         ExpeditionPrice = expeditionPrice,
                         SelectedQuantity = selectedQuantity,
-                        TotalPrice = totalPrice
+                        TotalPrice = totalPrice,
+                        OrderID = orderID  // Pass the order ID to the Payment form
                     };
 
                     ResetTransactionForm(); // Clear the transaction form
