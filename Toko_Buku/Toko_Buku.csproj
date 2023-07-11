@@ -108,6 +108,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransactionData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransactionData.Designer.cs">
+      <DependentUpon>TransactionData.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransactionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionData.resx">
+      <DependentUpon>TransactionData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>

@@ -24,7 +24,16 @@ namespace Toko_Buku
 
         private void btn_transaction_Click(object sender, EventArgs e)
         {
-            
+            TransactionData transactionData = new TransactionData();
+            transactionData.TopLevel = false;
+            transactionData.FormBorderStyle = FormBorderStyle.None;
+            transactionData.Dock = DockStyle.Fill;
+
+            panelContent.Controls.Clear();
+
+            panelContent.Controls.Add(transactionData);
+
+            transactionData.Show();
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
